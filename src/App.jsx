@@ -1,5 +1,10 @@
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 const App = () => {
-  return <div>App</div>;
+  return (
+    <BrowserRouter>
+      <div className='container'></div>
+    </BrowserRouter>
+  );
 };
 
 export default App;
