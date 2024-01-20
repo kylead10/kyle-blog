@@ -1,14 +1,14 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Redirect } from 'react-router-dom';
 import Header from './components/Header';
 import PageNotFound from './components/PageNotFound';
 import ShowStories from './components/ShowStories';
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
-      <div className='container'>
-        <Header />
-        <Switch>
+    <>
+      <Routes>
+        <div className='container'>
+          <Header />
           <Route path='/' render={() => <Redirect to='/top' />} exact={true} />
           <Route
             path='/:type'
@@ -21,9 +21,9 @@ const AppRouter = () => {
             }}
           />
           <Route component={PageNotFound} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+        </div>
+      </Routes>
+    </>
   );
 };
 
