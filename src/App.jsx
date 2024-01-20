@@ -1,28 +1,25 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
-import Header from './components/Header';
-import PageNotFound from './components/PageNotFound';
-import ShowStories from './components/ShowStories';
+import React from 'react';
+import './App.css';
 
-const App = () => {
+function App() {
+  const [data, setData] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch('/api')
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
   return (
-    <>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Navigate to='/top' />} exact={true} />
-        {/* <Route
-            path='/:type'
-            render={({ match }) => {
-              const { type } = match.params;
-              if (!['top', 'new', 'best'].includes(type)) {
-                return <Navigate to='/' />;
-              }
-              return <ShowStories type={type} />;
-            }}
-          /> */}
-        {/* <Route component={PageNotFound} /> */}
-      </Routes>
-    </>
+    <div className='App'>
+      <header className='App-header'>
+        <p>{!data ? 'Loading...' : data}</p>
+        <form action='../../post' method='post' className='form'>
+          <button type='submit'>Connected?</button>
+        </form>
+      </header>
+    </div>
   );
-};
+}
 
 export default App;
