@@ -6,7 +6,8 @@ import ShowStories from '../components/ShowStories';
 const AppRouter = () => {
   return (
     <>
-      <Header /> {/* Place Header outside of Routes if it's global */}
+      <Header />
+
       <Routes>
         <Route path='/' element={<Navigate to='/top' replace />} exact />
         <Route
@@ -21,6 +22,7 @@ const AppRouter = () => {
         />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
+      <div className='container'></div>
     </>
   );
 };

@@ -21,3 +21,9 @@ const Header = () => {
 };
 
 export default Header;
+
+// const Header = () => {
+//   return <div>Header</div>;
+// };
+
+// export default Header;
