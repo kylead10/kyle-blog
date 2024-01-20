@@ -3,13 +3,13 @@ import Header from './components/Header';
 import PageNotFound from './components/PageNotFound';
 import ShowStories from './components/ShowStories';
 
-const AppRouter = () => {
+const App = () => {
   return (
     <>
       <div className='container'>
         <Header />
         <Routes>
-          <Route path='/' render={() => <Navigate to='/top' />} exact={true} />
+          <Route path='/' element={<Navigate to='/top' />} exact={true} />
           <Route
             path='/:type'
             render={({ match }) => {
@@ -27,4 +27,4 @@ const AppRouter = () => {
   );
 };
 
-export default AppRouter;
+export default App;
