@@ -6,15 +6,14 @@ const Header = () => {
     <React.Fragment>
       <h1>Hacker News Clone</h1>
       <div className='nav-link'>
-        <NavLink to='/top' activeClassName='active'>
+        <NavLink
+          to='/top'
+          className={({ isActive }) => (isActive ? 'active' : '')}
+        >
           Top Stories
         </NavLink>
-        <NavLink to='/new' activeClassName='active'>
-          Latest Stories
-        </NavLink>
-        <NavLink to='/best' activeClassName='active'>
-          Best Stories
-        </NavLink>
+        <NavLink to='/new'>Latest Stories</NavLink>
+        <NavLink to='/best'>Best Stories</NavLink>
       </div>
     </React.Fragment>
   );
