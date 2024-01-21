@@ -1,5 +1,3 @@
-import React from 'react'; // Assuming React usage
-
 const Link = ({ url, title }) => (
   <a href={url} target='_blank' rel='noopener noreferrer'>
     {title}
