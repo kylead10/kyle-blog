@@ -9,9 +9,3 @@ const PageNotFound = () => {
 };
 
 export default PageNotFound;
-
-// const PageNotFound = () => {
-//   return <div>PageNotFound</div>;
-// };
-
-// export default PageNotFound;
