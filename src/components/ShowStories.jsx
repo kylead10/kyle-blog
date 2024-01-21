@@ -7,7 +7,7 @@ const ShowStories = ({ type }) => {
   const { isLoading, stories = [] } = useDataFetcher(type ? type : 'top');
   return (
     <React.Fragment>
-      <Loader show={isLoading}>Loading...</Loader>
+      <Loader show={isLoading}>Loading ...</Loader>
       <React.Fragment>
         {stories.map(
           (story) => story && <Story key={story.id} story={story} />
