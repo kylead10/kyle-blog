@@ -5,7 +5,7 @@ const Link = ({ url, title }) => (
 );
 
 const Story = ({ story }) => {
-  const { id, by, title, kids, time, storyUrl } = story; // Assuming correct property name
+  const { id, by, title, kids, time, storyUrl } = story;
 
   return (
     <div className='story'>
