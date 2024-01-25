@@ -14,6 +14,7 @@ const AppRouter = () => {
           path='/:type'
           render={({ match }) => {
             const { type } = match.params;
+            console.log('Route type:', type);
             if (!['top', 'new', 'best'].includes(type)) {
               return <Navigate to='/' />;
             }
