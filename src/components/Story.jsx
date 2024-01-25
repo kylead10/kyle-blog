@@ -1,16 +1,54 @@
+// const Link = ({ url, title }) => (
+//   <a href={url} target='_blank' rel='noopener noreferrer'>
+//     {title}
+//   </a>
+// );
+
+// const Story = ({ story }) => {
+//   const { id, by, title, kids, time, storyUrl } = story;
+
+//   return (
+//     <div className='story'>
+//       <div className='story-title'>
+//         <Link url={storyUrl} title={title} />
+//       </div>
+//       <div className='story-info'>
+//         <span>
+//           by{' '}
+//           <Link url={`https://news.ycombinator.com/user?id=${by}`} title={by} />
+//         </span>
+//         |
+//         <span>
+//           {new Date(time * 1000).toLocaleTimeString('en-US', {
+//             hour: 'numeric',
+//             minute: 'numeric',
+//           })}
+//         </span>
+//         |
+//         <span>
+//           <Link
+//             url={`https://news.ycombinator.com/item?id=${id}`}
+//             title={`${kids?.length ? kids.length : 0} comments`}
+//           />
+//         </span>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Story;
+
 const Link = ({ url, title }) => (
-  <a href={url} target='_blank' rel='noopener noreferrer'>
+  <a href={url} target='_blank' rel='noreferrer'>
     {title}
   </a>
 );
 
-const Story = ({ story }) => {
-  const { id, by, title, kids, time, storyUrl } = story;
-
+const Story = ({ story: { id, by, title, kids, time, url } }) => {
   return (
     <div className='story'>
       <div className='story-title'>
-        <Link url={storyUrl} title={title} />
+        <Link url={url} title={title} />
       </div>
       <div className='story-info'>
         <span>
@@ -19,7 +57,7 @@ const Story = ({ story }) => {
         </span>
         |
         <span>
-          {new Date(time * 1000).toLocaleTimeString('en-US', {
+          {new Date(time * 1000).toLocaleDateString('en-US', {
             hour: 'numeric',
             minute: 'numeric',
           })}
@@ -28,7 +66,7 @@ const Story = ({ story }) => {
         <span>
           <Link
             url={`https://news.ycombinator.com/item?id=${id}`}
-            title={`${kids?.length ? kids.length : 0} comments`}
+            title={`${kids && kids.length > 0 ? kids.length : 0} comments`}
           />
         </span>
       </div>
