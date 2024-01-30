@@ -27,13 +27,9 @@ export default function PostPage() {
             </Link>
           )}
           <span className='post-author'>{data.author}</span>
-          <span className='post-time'>
-              {moment(data.created_at).fromNow()}
-          </span>
+          <span className='post-time'>{moment(data.created_at).fromNow()}</span>
         </div>
-        {data.text && (
-          <div className='post-text'>​​​​​​​ {parse(data.text)}</div>
-        )}
+        {data.text && <div className='post-text'>{parse(data.text)}</div>}
         <div className='post-comments'>
           <div className='comments-label'>Comments</div>
           <Comments commentsData={data.children} />
