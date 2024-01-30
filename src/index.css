@@ -13,10 +13,13 @@ body {
 .item {
   margin-bottom: 13px;
   cursor: pointer;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .item:hover {
-  background-color: rgba(255, 166, 0, 0.524);
+  background-color: rgba(155, 116, 42, 0.524);
 }
 
 nav {
