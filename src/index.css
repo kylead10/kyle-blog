@@ -43,7 +43,10 @@ nav > a.active {
   text-transform: capitalize;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 23px;
+  margin-left: 0.4cm;
+  font-size: 30px;
+  font-weight: 900;
+  color: orange;
 }
 
 .item-link {
