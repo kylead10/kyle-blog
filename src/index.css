@@ -21,6 +21,8 @@ body {
 
 nav {
   display: flex;
+  font-size: 25px;
+  font-weight: 1000;
   justify-content: space-between;
 }
 

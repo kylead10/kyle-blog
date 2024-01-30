@@ -1,39 +1,44 @@
+import { Link, useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import moment from 'moment';
+import Comments from '../components/Comments';
+import useFetch from '../hooks/useFetch';
 
-export default function Comments({ commentsData }) {
-  return (
-    <>
-      {commentsData.map((commentData) => (
-        <Node commentData={commentData} key={commentData.id} />
-      ))}
-    </>
-  );
-}
+export default function PostPage() {
+  const { id } = useParams();
+  const { loading, error, data } = useFetch(null, id);
 
-function Node({ commentData }) {
-  return (
-    <div className='comment'>
-      {commentData.text && (
-        <>
-          <div className='comment-metadata'>
-            <span>{commentData.author}</span>
-            <span>
-                {moment(commentData.created_at).fromNow()}
-              ​​​​​​​{' '}
-            </span>
-          </div>
-          <div className='comment-text'>  {parse(commentData.text)}</div>
-        </>
-      )}
-      <div className='comment-replies'>
-         {' '}
-        {commentData.children &&
-          commentData.children.map((child) => (
-            <Node commentData={child} key={child.id} />
-          ))}
-         {' '}
+  if (error) {
+    return <div>Something went wrong!</div>;
+  }
+
+  if (loading) {
+    return <div>Loading</div>;
+  }
+
+  if (data) {
+    document.title = data.title;
+
+    return (
+      <div>
+        <div className='post-title'>{data.title}</div>
+        <div className='post-metadata'>
+          {data.url && (
+            <Link to={data.url} className='post-link'>
+              Visit Website
+            </Link>
+          )}
+          <span className='post-author'>{data.author}</span>
+          <span className='post-time'>{moment(data.created_at).fromNow()}</span>
+        </div>
+        {data.text && <div className='post-text'>{parse(data.text)}</div>}
+        <div className='post-comments'>
+          <div className='comments-label'>Comments</div>
+          <Comments commentsData={data.children} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
+export { PostPage };
