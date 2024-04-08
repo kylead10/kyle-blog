@@ -1,6 +1,5 @@
 # React + Vite
 
-
 A react website using API to get blog posts.
 
 Check it out here: https://kyle-blog-two.vercel.app/
